@@ -1,5 +1,6 @@
 import type { IItemPedido } from '../types'
 import { useCart } from '../hooks/useCart'
+import { useLanguage } from '../i18n/LanguageProvider'
 
 interface CartItemProps {
   item: IItemPedido
@@ -7,6 +8,7 @@ interface CartItemProps {
 
 export function CartItem({ item }: CartItemProps) {
   const { addItem, decrementItem, removeItem } = useCart()
+  const { labels } = useLanguage()
 
   return (
     <div className="rounded-2xl border border-orange-100 bg-orange-50/70 p-4">
@@ -38,7 +40,7 @@ export function CartItem({ item }: CartItemProps) {
           onClick={() => removeItem(item.product.id)}
           className="ml-auto rounded-full bg-rose-500 px-3 py-1.5 text-sm font-semibold text-white"
         >
-          Remover
+          {labels.remove}
         </button>
       </div>
     </div>

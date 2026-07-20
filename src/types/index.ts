@@ -1,4 +1,6 @@
-export type CategoriaProduto = 'Pratos Principais' | 'Bebidas' | 'Sobremesas'
+export type Language = 'pt-BR' | 'en-US'
+
+export type CategoriaProduto = 'Pratos Principais' | 'Bebidas' | 'Sobremesas' | 'Main Dishes' | 'Drinks' | 'Desserts'
 
 export interface IProduto {
   id: string
