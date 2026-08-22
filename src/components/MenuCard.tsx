@@ -1,5 +1,6 @@
 import type { IProduto } from '../types'
 import { useCart } from '../hooks/useCart'
+import { useLanguage } from '../i18n/LanguageProvider'
 
 interface MenuCardProps {
   product: IProduto
@@ -7,6 +8,7 @@ interface MenuCardProps {
 
 export function MenuCard({ product }: MenuCardProps) {
   const { addItem } = useCart()
+  const { labels } = useLanguage()
 
   return (
     <button
@@ -31,7 +33,7 @@ export function MenuCard({ product }: MenuCardProps) {
           R$ {product.price.toFixed(2)}
         </span>
         <span className="rounded-full bg-slate-900 px-3 py-1 text-sm font-semibold text-white">
-          Adicionar
+          {labels.add}
         </span>
       </div>
     </button>

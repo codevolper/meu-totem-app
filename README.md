@@ -1,32 +1,84 @@
-# React + TypeScript + Vite
+# Meu Totem App
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Aplicação React + Vite + TypeScript para um sistema de totem de autoatendimento de restaurante, com interface touch-friendly, carrinho, resumo do pedido, fluxo de confirmação e pagamento simulado.
 
-Currently, two official plugins are available:
+## Tecnologias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19
+- Vite 8
+- TypeScript
+- Tailwind CSS
+- Axios
+- Context API para gerenciamento do carrinho
 
-## React Compiler
+## Requisitos
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Node.js 18+ recomendado
+- npm ou pnpm
 
-## Expanding the Oxlint configuration
+## Clonando o projeto
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+git clone <url-do-repositorio>
+cd meu-totem-app
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Instalando dependências
+
+```bash
+npm install
+```
+
+Se quiser usar pnpm, também é possível:
+
+```bash
+pnpm install
+```
+
+## Rodando em desenvolvimento
+
+```bash
+npm run dev
+```
+
+A aplicação ficará disponível em:
+
+```text
+http://localhost:5173
+```
+
+## Build para produção
+
+```bash
+npm run build
+```
+
+## Versionamento e fluxo Git
+
+Recomenda-se manter o projeto versionado com commits semânticos e branches para cada feature.
+
+Exemplo:
+
+```bash
+git checkout -b feature/nova-funcionalidade
+git add .
+git commit -m "feat: adiciona nova funcionalidade"
+git push origin feature/nova-funcionalidade
+```
+
+## Estrutura principal
+
+```text
+src/
+  components/
+  hooks/
+  i18n/
+  pages/
+  services/
+  types/
+```
+
+## Observações
+
+- O projeto já inclui um mock local para os produtos e para o processamento do pedido.
+- A interface suporta dois idiomas: Português Brasileiro e Inglês Americano.

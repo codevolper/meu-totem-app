@@ -1,3 +1,5 @@
+import { useLanguage } from '../i18n/LanguageProvider'
+
 interface PaymentMethodOption {
   id: string
   label: string
@@ -10,28 +12,30 @@ interface PaymentMethodSelectorProps {
   onChange: (value: string) => void
 }
 
-const paymentMethods: PaymentMethodOption[] = [
-  {
-    id: 'card',
-    label: 'Cartão',
-    description: 'Terminal com leitor',
-    icon: '💳',
-  },
-  {
-    id: 'pix',
-    label: 'PIX',
-    description: 'Pagamento instantâneo',
-    icon: '📱',
-  },
-  {
-    id: 'cash',
-    label: 'Dinheiro',
-    description: 'Troco incluso',
-    icon: '💵',
-  },
-]
-
 export function PaymentMethodSelector({ value, onChange }: PaymentMethodSelectorProps) {
+  const { labels } = useLanguage()
+
+  const paymentMethods: PaymentMethodOption[] = [
+    {
+      id: 'card',
+      label: labels.paymentMethods.cardLabel,
+      description: labels.paymentMethods.cardDescription,
+      icon: '💳',
+    },
+    {
+      id: 'pix',
+      label: labels.paymentMethods.pixLabel,
+      description: labels.paymentMethods.pixDescription,
+      icon: '📱',
+    },
+    {
+      id: 'cash',
+      label: labels.paymentMethods.cashLabel,
+      description: labels.paymentMethods.cashDescription,
+      icon: '💵',
+    },
+  ]
+
   return (
     <div className="grid gap-2">
       {paymentMethods.map((method) => {
@@ -52,7 +56,7 @@ export function PaymentMethodSelector({ value, onChange }: PaymentMethodSelector
               </div>
             </div>
             <span className={`text-sm font-semibold ${isActive ? 'text-orange-100' : 'text-orange-500'}`}>
-              {isActive ? 'Selecionado' : 'Escolher'}
+              {isActive ? labels.paymentMethods.selected : labels.paymentMethods.choose}
             </span>
           </button>
         )
